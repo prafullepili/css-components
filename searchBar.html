@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 800,
+                'GRAD' 0,
+                'opsz' 48
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #4e65ff, #92effd);
+        }
+
+        .searchBox {
+            position: relative;
+            background: #fff;
+            border-radius: 100px;
+            display: flex;
+            justify-content: space-between;
+            transition: 0.5s;
+            overflow: hidden;
+            /* box-shadow: 0 25px 35px rgba(0, 0, 0, 0.1); */
+            width: 60px;
+            height: 60px;
+        }
+
+        .searchBox.active {
+            width: 50%;
+        }
+
+        .searchBox .search {
+            position: relative;
+            min-width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .searchBox .close {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.25em;
+            scale: 0;
+            transition: 0.5s;
+        }
+
+        .searchBox.active .close {
+            scale: 1;
+            cursor: pointer;
+            transition-delay: 0.3s;
+        }
+
+        .searchBox .searchInput {
+            position: absolute;
+            left: 60px;
+            width: calc(100% - 120px);
+            height: 100%;
+            line-height: 60px;
+        }
+
+        .searchBox .searchInput input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-size: 1.25em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="searchBox active">
+        <div class="search">
+            <span class="material-symbols-outlined">
+                search
+            </span>
+        </div>
+        <div class="searchInput">
+            <input type="text" placeholder="Search Here">
+        </div>
+        <div class="close">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </div>
+    </div>
+
+    <script>
+        let search = document.querySelector(".search")
+        let close = document.querySelector(".close")
+        let searchBox = document.querySelector(".searchBox")
+
+        search.onclick = function () {
+            searchBox.classList.add('active');
+        }
+        close.onclick = function () {
+            searchBox.classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>
